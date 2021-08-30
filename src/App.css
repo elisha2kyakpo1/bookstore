@@ -1,3 +1,49 @@
-.App {
-  text-align: center;
+.links,
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav,
+.books {
+  background-color: #fff;
+  padding: 0 6.25rem;
+}
+
+.books {
+  width: 75rem;
+  height: 10.625rem;
+  margin: 2.313rem 6.25rem 0;
+  padding: 2rem 9.188rem 1.625rem 1.688rem;
+  border-radius: 4px;
+  border: solid 1px #e8e8e8;
+}
+
+.logo {
+  color: #0290ff;
+  width: 15rem;
+  height: 2.313rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+/* black2 #121212 */
+
+.links li {
+  list-style: none;
+  width: 100px;
+}
+
+.links a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 2.563rem;
+  height: 1rem;
+  margin: 1.125rem 2.5rem 0.688rem 2.563rem;
+  opacity: 0.5;
+  letter-spacing: 1.9px;
 }

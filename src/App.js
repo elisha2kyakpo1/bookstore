@@ -6,6 +6,7 @@ import {
 import Nav from './components/Nav';
 import Books from './redux/books/Books';
 import Categories from './redux/categories/Categories';
+import './App.css';
 
 function App() {
   return (
@@ -13,11 +14,11 @@ function App() {
       <Router>
         <Nav />
         <Switch>
-          <Route path="/books">
-            <Books />
-          </Route>
           <Route path="/categories">
             <Categories />
+          </Route>
+          <Route path="/">
+            <Books />
           </Route>
         </Switch>
       </Router>
