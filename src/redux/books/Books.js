@@ -22,8 +22,8 @@ const Books = () => {
     },
   ]);
 
-  const addBook = (title, author) => {
-    const newBook = [...books, { title }, { author }];
+  const addBook = (title) => {
+    const newBook = [...books, { title }];
     setBook(newBook);
   };
 
@@ -77,8 +77,8 @@ const Books = () => {
       </div>
       <form className="form" onSubmit={HandleSub} action="#">
         <h1>ADD NEW BOOK</h1>
-        <input className="input" type="text" onChange={(e) => setBook(e.target.value)} placeholder="Book title" />
-        <input className="input-cat" type="text" onChange={(e) => setBook(e.target.value)} placeholder="Book title" />
+        <input className="input" type="text" onChange={(e) => addBook(e.target.value)} placeholder="Book title" />
+        <input className="input-cat" type="text" placeholder="Book title" />
         <input className="submit" type="submit" value="Add Book" />
       </form>
     </div>

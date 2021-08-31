@@ -24,6 +24,7 @@
   font-size: 1.4rem;
   font-weight: 300;
   color: #4386bf;
+  cursor: pointer;
 }
 
 .action-buttons {
@@ -53,6 +54,7 @@
   text-align: center;
   color: #fff;
   border: none;
+  cursor: pointer;
 }
 
 .submit {
