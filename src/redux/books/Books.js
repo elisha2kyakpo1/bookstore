@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const Books = () => {
+  const [input, getInput] = useState('');
   const [books, setBook] = useState([
     {
       title: 'The Hunger Game',
@@ -29,8 +30,8 @@ const Books = () => {
 
   const HandleSub = (e) => {
     e.preventDefault();
-    if (!books) {
-      addBook(books);
+    if (!input) {
+      addBook(input);
       setBook('');
     }
   };
@@ -52,9 +53,9 @@ const Books = () => {
                     <h4>{book.author}</h4>
                   </div>
                   <div className="action-buttons">
-                    <span type="button">Comments</span>
-                    <span type="button">Remove</span>
-                    <span type="button">Edit</span>
+                    <span>Comments</span>
+                    <span>Remove</span>
+                    <span>Edit</span>
                   </div>
                 </div>
                 <div className="percent">
@@ -77,7 +78,7 @@ const Books = () => {
       </div>
       <form className="form" onSubmit={HandleSub} action="#">
         <h1>ADD NEW BOOK</h1>
-        <input className="input" type="text" onChange={(e) => addBook(e.target.value)} placeholder="Book title" />
+        <input className="input" type="text" onChange={(e) => getInput(e.target.value)} placeholder="Book title" />
         <input className="input-cat" type="text" placeholder="Book title" />
         <input className="submit" type="submit" value="Add Book" />
       </form>

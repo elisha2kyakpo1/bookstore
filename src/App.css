@@ -10,6 +10,14 @@
   padding: 0 6.25rem;
 }
 
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 500;
+}
+
 .books,
 .title-section,
 .percent {
@@ -73,6 +81,10 @@
   border: solid 1px #e8e8e8;
 }
 
+.book {
+  margin-top: 150px;
+}
+
 .logo {
   color: #0290ff;
   width: 15rem;
@@ -93,7 +105,7 @@
 }
 
 .form {
-  margin: 2.313rem 4.25rem 0;
+  margin: 2.313rem 4.25rem 10rem;
   padding: 2rem 9.188rem 1.625rem 1.688rem;
 }
 
