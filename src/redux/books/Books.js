@@ -32,7 +32,7 @@ const Books = () => {
     e.preventDefault();
     if (!input) {
       addBook(input);
-      setBook('');
+      getInput('');
     }
   };
 
