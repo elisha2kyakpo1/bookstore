@@ -81,7 +81,8 @@
   border: solid 1px #e8e8e8;
 }
 
-.book {
+.book,
+.categories {
   margin-top: 150px;
 }
 
