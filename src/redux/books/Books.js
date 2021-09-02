@@ -1,42 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CreateNewBook from '../../components/CreateNewBook';
-import Book from './Book';
+import initialData from '../../components/initialData';
 
-const Books = (props) => {
-  const bookList = [
-    {
-      title: 'The Hunger Game',
-      author: 'suzane collins',
-      percentComplete: '64%',
-      chapter: 'Chapter 17',
-    },
-    {
-      title: 'Dune',
-      author: 'Frank Herbert',
-      percentComplete: '8%',
-      chapter: 'Chapter 3: "A lesson learned"',
-    },
-    {
-      title: 'Capital in the Twenty-First Century',
-      author: 'suzane collins',
-      percentComplete: '0%',
-      chapter: 'Introduction',
-    },
-  ];
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-  return (
-    <div className="booklist">
-      {bookList.map((book) => (
-        <Book key={props.title} title={book.title} author={book.author} />
-      ))}
-      <CreateNewBook />
-    </div>
-  );
+const initialState = initialData;
+
+const addBook = (payload) => ({
+  type: ADD_BOOK,
+  payload,
+});
+
+const removeBook = (id) => ({
+  type: REMOVE_BOOK,
+  id,
+});
+
+const Books = (state = initialState, action) => {
+  const authors = ['William Shakespeare', 'Agatha Christie', 'Barbara Cartland', 'Stephen King', 'Penny Jordan'];
+  const currentChapter = ['Introduction', 'Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5'];
+  switch (action.type) {
+    case ADD_BOOK:
+      return [...state, {
+        id: state.length > 0 ? state[state.length - 1].id + 1 : 1,
+        ...action.payload,
+        author: authors[Math.floor(Math.random() * authors.length)],
+        progress: Math.floor(Math.random() * 100),
+        currentChapter: currentChapter[Math.floor(Math.random() * currentChapter.length)],
+      }];
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.id);
+    default:
+      return state;
+  }
 };
 
-Books.propTypes = {
-  title: PropTypes.string.isRequired,
+export {
+  Books,
+  removeBook,
+  addBook,
 };
-
-export default Books;
