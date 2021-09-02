@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from './Books';
+import { removeBook } from '../redux/books/Books';
 
 const Book = (props) => {
   const {
@@ -36,7 +36,7 @@ const Book = (props) => {
               </div>
               <div className="action-buttons">
                 <button type="button">Comments</button>
-                <button type="button" onClick={handleClick} data-bookid={id}>Remove</button>
+                <button type="button" onClick={handleClick} data-bookId={id}>Remove</button>
                 <button type="button">Edit</button>
               </div>
             </div>

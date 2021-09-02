@@ -11,7 +11,7 @@ function Books(state = defaultState, action) {
         title: action.payload.title,
         author: action.payload.author,
         category: action.payload.category,
-        progress: 0,
+        percentComplete: 0,
       });
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload);

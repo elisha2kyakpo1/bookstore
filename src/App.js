@@ -4,7 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Nav from './components/Nav';
-import Books from './redux/books/Books';
+import RenderBooks from './components/RenderBooks';
 import Categories from './redux/categories/Categories';
 import './App.css';
 
@@ -18,7 +18,7 @@ function App() {
             <Categories />
           </Route>
           <Route path="/">
-            <Books />
+            <RenderBooks />
           </Route>
         </Switch>
       </Router>
