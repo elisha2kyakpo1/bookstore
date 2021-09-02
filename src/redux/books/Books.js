@@ -3,13 +3,10 @@ import {
   removeBookApi,
   addBookApi,
 } from '../../components/ApiData';
-// import initialData from '../../components/initialData';
 
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 const GET_BOOK = 'bookstore/books/REMOVE_BOOK';
-
-// const initialState = initialData;
 
 const addBook = (payload) => ({
   type: ADD_BOOK,
@@ -48,15 +45,15 @@ export const deleteBook = (id) => async (dispatch) => {
 };
 
 const books = (state = [], action) => {
-  const authors = ['William Shakespeare', 'Agatha Christie', 'Barbara Cartland', 'Stephen King', 'Penny Jordan'];
-  const currentChapter = ['Introduction', 'Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5'];
+  const authors = ['Stephen Jodan', 'Elisha martin', 'Winnie more', 'Stephen King', 'Albert Jordan'];
+  const chapter = ['Introduction', 'Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5'];
   switch (action.type) {
     case ADD_BOOK:
       return [...state, {
         ...action.payload,
         author: authors[Math.floor(Math.random() * authors.length)],
-        progress: Math.floor(Math.random() * 100),
-        currentChapter: currentChapter[Math.floor(Math.random() * currentChapter.length)],
+        percentComplete: Math.floor(Math.random() * 100),
+        chapter: chapter[Math.floor(Math.random() * chapter.length)],
       }];
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.id);
@@ -67,8 +64,8 @@ const books = (state = [], action) => {
           id: key,
           ...book,
           author: authors[Math.floor(Math.random() * authors.length)],
-          progress: Math.floor(Math.random() * 100),
-          currentChapter: currentChapter[Math.floor(Math.random() * currentChapter.length)],
+          percentComplete: Math.floor(Math.random() * 100),
+          chapter: chapter[Math.floor(Math.random() * chapter.length)],
         };
       });
 

@@ -7,12 +7,11 @@ function BookList({ books }) {
     <div className="book-list">
       { books.map((book) => {
         const {
-          id, title, author, category, percentComplete,
+          title, author, category, percentComplete,
         } = book;
         return (
           <Book
-            key={id}
-            id={id}
+            key={category}
             cat={category}
             title={title}
             author={author}

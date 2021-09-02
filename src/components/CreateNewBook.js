@@ -4,7 +4,7 @@ import uniqid from 'uniqid';
 import { createBook } from '../redux/books/Books';
 
 function CreateNewBook() {
-  const categories = ['Development', 'Java', 'JavaScript', 'Chemical', 'LifeStyle'];
+  const categories = ['Development', 'Software', 'Mechanical', 'Chemical', 'LifeStyle'];
 
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
