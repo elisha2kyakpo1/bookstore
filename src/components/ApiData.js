@@ -1,5 +1,5 @@
 const APP_ID = '2bjHmEaEwufiiom45UAT';
-const USER_DATA_API = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps${APP_ID}/books`;
+const USER_DATA_API = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${APP_ID}/books`;
 
 const fetchBooksApi = async () => {
   const requestOptions = {
