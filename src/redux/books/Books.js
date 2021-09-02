@@ -3,7 +3,7 @@ const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
 const defaultState = [];
 
-function books(state = defaultState, action) {
+function Books(state = defaultState, action) {
   switch (action.type) {
     case ADD_BOOK:
       return state.concat({
@@ -20,18 +20,22 @@ function books(state = defaultState, action) {
   }
 }
 
-export function addBook(payload) {
+function addBook(payload) {
   return {
     type: ADD_BOOK,
     payload,
   };
 }
 
-export function removeBook(payload) {
+function removeBook(payload) {
   return {
     type: REMOVE_BOOK,
     payload,
   };
 }
 
-export default books;
+export {
+  Books,
+  removeBook,
+  addBook,
+};

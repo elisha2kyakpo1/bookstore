@@ -1,13 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from './Books';
 
 const Book = (props) => {
   const {
+    id,
+    category,
     title,
     author,
     percentComplete,
     chapter,
   } = props;
+
+  const dispatch = useDispatch();
+
+  function handleClick(e) {
+    const payload = Number(e.target.dataset.bookId);
+    dispatch(removeBook(payload));
+  }
 
   return (
     <div>
@@ -15,18 +26,18 @@ const Book = (props) => {
         <div>
           <div
             className="books"
-            key={title}
+            key={id}
           >
             <div className="title-section">
               <div>
-                <h4>Action</h4>
+                <h4>{category}</h4>
                 <h2>{title}</h2>
                 <h4>{author}</h4>
               </div>
               <div className="action-buttons">
-                <span>Comments</span>
-                <span>Remove</span>
-                <span>Edit</span>
+                <button type="button">Comments</button>
+                <button type="button" onClick={handleClick} data-bookid={id}>Remove</button>
+                <button type="button">Edit</button>
               </div>
             </div>
             <div className="percent">
@@ -50,6 +61,8 @@ const Book = (props) => {
 };
 
 Book.propTypes = {
+  id: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   chapter: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
