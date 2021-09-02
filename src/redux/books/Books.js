@@ -1,42 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CreateNewBook from '../../components/CreateNewBook';
-import Book from './Book';
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-const Books = (props) => {
-  const bookList = [
-    {
-      title: 'The Hunger Game',
-      author: 'suzane collins',
-      percentComplete: '64%',
-      chapter: 'Chapter 17',
-    },
-    {
-      title: 'Dune',
-      author: 'Frank Herbert',
-      percentComplete: '8%',
-      chapter: 'Chapter 3: "A lesson learned"',
-    },
-    {
-      title: 'Capital in the Twenty-First Century',
-      author: 'suzane collins',
-      percentComplete: '0%',
-      chapter: 'Introduction',
-    },
-  ];
+const defaultState = [];
 
-  return (
-    <div className="booklist">
-      {bookList.map((book) => (
-        <Book key={props.title} title={book.title} author={book.author} />
-      ))}
-      <CreateNewBook />
-    </div>
-  );
-};
+function books(state = defaultState, action) {
+  switch (action.type) {
+    case ADD_BOOK:
+      return state.concat({
+        id: Date.now(),
+        title: action.payload.title,
+        author: action.payload.author,
+        category: action.payload.category,
+        progress: 0,
+      });
+    case REMOVE_BOOK:
+      return state.filter((book) => book.id !== action.payload);
+    default:
+      return state;
+  }
+}
 
-Books.propTypes = {
-  title: PropTypes.string.isRequired,
-};
+export function addBook(payload) {
+  return {
+    type: ADD_BOOK,
+    payload,
+  };
+}
 
-export default Books;
+export function removeBook(payload) {
+  return {
+    type: REMOVE_BOOK,
+    payload,
+  };
+}
+
+export default books;
