@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/Books';
+import uniqid from 'uniqid';
+import { createBook } from '../redux/books/Books';
 
 function CreateNewBook() {
+  const categories = ['Development', 'Java', 'JavaScript', 'Chemical', 'LifeStyle'];
+
   const dispatch = useDispatch();
-  const [formState, setFormState] = useState({ title: '', author: '', category: 'Category' });
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState(categories[0]);
 
-  function handleChange(e) {
-    setFormState({ ...formState, [e.target.name]: e.target.value });
-  }
-
-  function handleSubmit(e) {
-    dispatch(addBook(formState));
+  const handleSub = (e) => {
     e.preventDefault();
-    setFormState({
-      ...formState, title: '', author: '', category: 'Action',
-    });
-  }
+    if (title && category) {
+      dispatch(createBook({ item_id: uniqid(), title, category }));
+      setTitle('');
+      setCategory(categories[0]);
+      e.target.reset();
+    }
+  };
 
   return (
     <div className="form">
       <h2>Add NEW BOOK</h2>
-      <form onSubmit={handleSubmit}>
-        <input className="input" type="text" name="title" placeholder="Book title" value={formState.title} onChange={handleChange} />
-        <select className="selection" name="category" value={formState.category} onChange={handleChange}>
-          <option value="" hidden>Category</option>
-          <option value="Sci-Fi">Sci-Fi</option>
-          <option value="Action">Action</option>
-          <option value="Action">Economy</option>
+      <form onSubmit={handleSub}>
+        <input className="input" type="text" name="title" placeholder="Book title" onChange={(title) => setTitle(title.target.value)} />
+        <select className="selection" name="category" onChange={(category) => setCategory(category.target.value)}>
+          {categories.map((category) => (
+            <option key={category} value={category}>{category}</option>
+          ))}
         </select>
         <button type="submit" className="submit">ADD BOOK</button>
       </form>

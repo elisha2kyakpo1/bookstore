@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/Books';
+import { removeBookApi } from './ApiData';
 
 const Book = (props) => {
   const {
@@ -15,10 +15,7 @@ const Book = (props) => {
 
   const dispatch = useDispatch();
 
-  function handleClick(e) {
-    const payload = Number(e.target.dataset.bookid);
-    dispatch(removeBook(payload));
-  }
+  const handleClick = () => dispatch(removeBookApi(id));
 
   const progress = {
     backgroundImage: `conic-gradient(from 0deg, #307bbe, #379cf6 ${percentComplete}%, #e8e8e8 ${percentComplete}%, #e8e8e8)`,

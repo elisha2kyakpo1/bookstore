@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBooks } from '../redux/books/Books';
 import BookList from './BookList';
 import CreateNewBook from './CreateNewBook';
 
-function Books() {
+function renderBooks() {
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.books);
+
+  useEffect(() => {
+    dispatch(getBooks());
+  }, []);
   return (
     <div className="form">
-      <BookList />
+      <BookList book={books} />
       <CreateNewBook />
     </div>
   );
 }
 
-export default Books;
+export default renderBooks;

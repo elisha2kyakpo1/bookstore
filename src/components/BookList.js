@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import Book from './Book';
 
-function BookList() {
-  const books = useSelector((state) => state.books);
+function BookList({ books }) {
   return (
     <div className="book-list">
       { books.map((book) => {
@@ -24,5 +23,13 @@ function BookList() {
     </div>
   );
 }
+
+BookList.propTypes = {
+  books: PropTypes.arrayOf(Book),
+};
+
+BookList.defaultProps = {
+  books: [],
+};
 
 export default BookList;
