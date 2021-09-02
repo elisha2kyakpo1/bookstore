@@ -14,23 +14,22 @@ function CreateNewBook() {
     dispatch(addBook(formState));
     e.preventDefault();
     setFormState({
-      ...formState, title: '', author: '', category: 'Category',
+      ...formState, title: '', author: '', category: 'Action',
     });
   }
 
   return (
-    <div>
+    <div className="form">
       <h2>Add NEW BOOK</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="title" placeholder="Book title" value={formState.title} onChange={handleChange} />
-        <input type="text" name="author" placeholder="Author name" value={formState.author} onChange={handleChange} />
-        <select name="category" value={formState.category} onChange={handleChange}>
+        <input className="input" type="text" name="title" placeholder="Book title" value={formState.title} onChange={handleChange} />
+        <select className="selection" name="category" value={formState.category} onChange={handleChange}>
           <option value="" hidden>Category</option>
           <option value="Sci-Fi">Sci-Fi</option>
           <option value="Action">Action</option>
           <option value="Action">Economy</option>
         </select>
-        <button type="submit" className="add-btn">ADD BOOK</button>
+        <button type="submit" className="submit">ADD BOOK</button>
       </form>
     </div>
   );

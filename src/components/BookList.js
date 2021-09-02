@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Book from './Book';
 
 function BookList() {
-  const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.Books);
   return (
     <div className="book-list">
       { books.map((book) => {
@@ -14,9 +14,9 @@ function BookList() {
           <Book
             key={id}
             id={id}
+            cat={category}
             title={title}
             author={author}
-            cat={category}
             prog={percentComplete}
           />
         );

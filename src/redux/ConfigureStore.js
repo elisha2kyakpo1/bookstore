@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import books from './books/Books';
+import { Books } from './books/Books';
 
 const reducer = combineReducers({
-  books,
+  Books,
 });
 
 const store = createStore(

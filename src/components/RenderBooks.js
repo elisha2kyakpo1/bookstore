@@ -4,7 +4,7 @@ import CreateNewBook from './CreateNewBook';
 
 function Books() {
   return (
-    <div>
+    <div className="form">
       <BookList />
       <CreateNewBook />
     </div>
