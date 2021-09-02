@@ -79,8 +79,8 @@ Book.propTypes = {
 
 Book.defaultProps = {
   id: 1,
-  category: 'Unknown',
-  author: 'Unknown',
+  category: '',
+  author: '',
   percentComplete: 0,
   chapter: 'Introduction',
 };
