@@ -31,7 +31,7 @@ const booksLoaded = (state = [], action) => {
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.id);
     case GET_BOOK:
-      return action.payload.map((bookObject) => ({ ...bookObject, progress: 74 }));
+      return action.payload.map((bookObject) => ({ ...bookObject }));
     default:
       return state;
   }

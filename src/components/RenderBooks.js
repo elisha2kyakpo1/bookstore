@@ -1,7 +1,5 @@
-// import React, { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { fetchBooksApi } from './ApiData';
 import Book from './Book';
+import BookList from './BookList';
 import CreateNewBook from './CreateNewBook';
 
 function renderBooks() {
@@ -9,6 +7,7 @@ function renderBooks() {
     <div className="render">
       <Book />
       <CreateNewBook />
+      <BookList />
     </div>
   );
 }

@@ -35,7 +35,7 @@ const removeBookApi = (id) => {
   return async function removeBookThunk(dispatch) {
     fetch(`${USER_DATA_API}${id.toString()}`, {
       method: 'DELETE',
-      body: JSON.stringify({ item_id: id.toString() }),
+      body: JSON.stringify({ item_id: id }),
       headers: {
         'content-type': 'application/json',
       },

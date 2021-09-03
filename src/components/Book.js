@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBookApi } from './ApiData';
 
-const Book = (props) => {
-  const {
-    id,
-    cat,
-    title,
-    author,
-    prog,
-    chapter,
-  } = props;
-
+const Book = ({
+  id,
+  cat,
+  title,
+  author,
+  prog,
+}) => {
   const dispatch = useDispatch();
 
   const handleClick = () => dispatch(removeBookApi(id));
@@ -32,9 +29,9 @@ const Book = (props) => {
           >
             <div className="title-section">
               <div>
-                <h4>{cat}</h4>
-                <h2>{title}</h2>
-                <h4>{author}</h4>
+                <h4 className="cat">{cat}</h4>
+                <h2 className="title">{title}</h2>
+                <h4 className="author">{author}</h4>
               </div>
               <div className="action-buttons">
                 <button type="button">Comments</button>
@@ -43,8 +40,10 @@ const Book = (props) => {
               </div>
             </div>
             <div className="percent">
-              <span className="circle" style={progress}> </span>
-              <div>
+              <span className="circle" style={progress}>
+                <div className="inner"> </div>
+              </span>
+              <div className="progress-contain">
                 <h3>
                   {prog}
                   %
@@ -52,10 +51,10 @@ const Book = (props) => {
                 <p>Completed</p>
               </div>
             </div>
-
-            <div>
-              <h4>Current Chapter</h4>
-              <h2>{chapter}</h2>
+            <div className="border"> </div>
+            <div className="current-div">
+              <h4 className="current">Current Chapter</h4>
+              <h2 className="chapter">Chapter 17</h2>
               <button className="update-progress" type="button">UPDATE PROGRESS</button>
             </div>
           </div>
@@ -66,21 +65,19 @@ const Book = (props) => {
 };
 
 Book.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   cat: PropTypes.string,
   title: PropTypes.string,
   author: PropTypes.string,
   prog: PropTypes.number,
-  chapter: PropTypes.string,
 };
 
 Book.defaultProps = {
-  id: 1,
-  cat: '',
-  title: '',
-  author: '',
-  prog: 0,
-  chapter: '',
+  id: 'kt3988z7',
+  cat: 'Action',
+  title: 'Good afternoon, I will get back to you',
+  author: 'Elisha kyakopo',
+  prog: 6,
 };
 
 export default Book;
