@@ -22,16 +22,18 @@ function CreateNewBook() {
 
   return (
     <div className="form">
-      <h2>Add NEW BOOK</h2>
-      <form onSubmit={handleSub}>
-        <input className="input" type="text" name="title" placeholder="Book title" onChange={(title) => setTitle(title.target.value)} />
-        <select className="selection" name="category" onChange={(category) => setCategory(category.target.value)}>
-          {categories.map((category) => (
-            <option key={category} value={category}>{category}</option>
-          ))}
-        </select>
-        <button type="submit" className="submit">ADD BOOK</button>
-      </form>
+      <div>
+        <h2>Add NEW BOOK</h2>
+        <form onSubmit={handleSub}>
+          <input className="input" type="text" name="title" placeholder="Book title" onChange={(title) => setTitle(title.target.value)} />
+          <select className="selection" name="category" onChange={(category) => setCategory(category.target.value)}>
+            {categories.map((category) => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+          <button type="submit" className="submit">ADD BOOK</button>
+        </form>
+      </div>
     </div>
   );
 }

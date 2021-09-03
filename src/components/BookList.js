@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-function BookList({ books }) {
+function BookList({ book }) {
   return (
     <div className="book-list">
-      { books.map((book) => {
+      { book.map((book) => {
         const {
           title, author, category, percentComplete,
         } = book;
@@ -24,11 +24,11 @@ function BookList({ books }) {
 }
 
 BookList.propTypes = {
-  books: PropTypes.arrayOf(Book),
+  book: PropTypes.arrayOf(Book),
 };
 
 BookList.defaultProps = {
-  books: [],
+  book: [],
 };
 
 export default BookList;

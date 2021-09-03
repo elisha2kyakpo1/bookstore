@@ -23,28 +23,28 @@ const fetchBooks = (payload) => ({
   payload,
 });
 
-export const getBooks = () => async (dispatch) => {
+const getBooks = () => async (dispatch) => {
   const books = await fetchBooksApi();
   if (books) {
     dispatch(fetchBooks(books));
   }
 };
 
-export const createBook = (book) => async (dispatch) => {
+const createBook = (book) => async (dispatch) => {
   const bookCreated = await addBookApi(book);
   if (bookCreated) {
     dispatch(addBook(book));
   }
 };
 
-export const deleteBook = (id) => async (dispatch) => {
+const deleteBook = (id) => async (dispatch) => {
   const bookDeleted = await removeBookApi(id);
   if (bookDeleted) {
     dispatch(removeBook(id));
   }
 };
 
-const books = (state = [], action) => {
+const booksLoaded = (state = [], action) => {
   const authors = ['Stephen Jodan', 'Elisha martin', 'Winnie more', 'Stephen King', 'Albert Jordan'];
   const chapter = ['Introduction', 'Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5'];
   switch (action.type) {
@@ -77,7 +77,10 @@ const books = (state = [], action) => {
 };
 
 export {
-  books,
+  booksLoaded,
   removeBook,
   addBook,
+  getBooks,
+  createBook,
+  deleteBook,
 };

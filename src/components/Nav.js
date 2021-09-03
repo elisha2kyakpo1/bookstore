@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Nav() {
   return (
@@ -12,6 +14,7 @@ function Nav() {
           <li title="category">Categories</li>
         </Link>
       </ul>
+      <div className="icon"><FontAwesomeIcon icon={faUser} /></div>
     </nav>
   );
 }

@@ -7,7 +7,6 @@ const fetchBooksApi = async () => {
   });
   try {
     const books = await result.json();
-    console.log(books);
     return books;
   } catch (error) {
     return {};

@@ -12,7 +12,7 @@ function renderBooks() {
     dispatch(getBooks());
   }, []);
   return (
-    <div className="form">
+    <div className="render">
       <BookList book={books} />
       <CreateNewBook />
     </div>
