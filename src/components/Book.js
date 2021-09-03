@@ -77,7 +77,7 @@ Book.defaultProps = {
   cat: 'Action',
   title: 'Good afternoon, I will get back to you',
   author: 'Elisha kyakopo',
-  prog: 6,
+  prog: 66,
 };
 
 export default Book;
