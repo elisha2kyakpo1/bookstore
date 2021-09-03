@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooks } from '../redux/books/Books';
-import BookList from './BookList';
+import { fetchBooksApi } from './ApiData';
+import Book from './Book';
 import CreateNewBook from './CreateNewBook';
 
 function renderBooks() {
@@ -9,11 +9,11 @@ function renderBooks() {
   const books = useSelector((state) => state.books);
 
   useEffect(() => {
-    dispatch(getBooks());
+    dispatch(fetchBooksApi());
   }, []);
   return (
     <div className="render">
-      <BookList book={books} />
+      <Book books={books} />
       <CreateNewBook />
     </div>
   );

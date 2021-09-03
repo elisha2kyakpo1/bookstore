@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import uniqid from 'uniqid';
-import { createBook } from '../redux/books/Books';
+import { addBookApi } from './ApiData';
 
 function CreateNewBook() {
   const categories = ['Development', 'Software', 'Mechanical', 'Chemical', 'LifeStyle'];
@@ -13,7 +13,7 @@ function CreateNewBook() {
   const handleSub = (e) => {
     e.preventDefault();
     if (title && category) {
-      dispatch(createBook({ item_id: uniqid(), title, category }));
+      dispatch(addBookApi({ item_id: uniqid(), title, category }));
       setTitle('');
       setCategory(categories[0]);
       e.target.reset();

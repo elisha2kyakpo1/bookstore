@@ -6,10 +6,10 @@ import { removeBookApi } from './ApiData';
 const Book = (props) => {
   const {
     id,
-    category,
+    cat,
     title,
     author,
-    percentComplete,
+    prog,
     chapter,
   } = props;
 
@@ -18,7 +18,7 @@ const Book = (props) => {
   const handleClick = () => dispatch(removeBookApi(id));
 
   const progress = {
-    backgroundImage: `conic-gradient(from 0deg, #307bbe, #379cf6 ${percentComplete}%, #e8e8e8 ${percentComplete}%, #e8e8e8)`,
+    backgroundImage: `conic-gradient(from 0deg, #307bbe, #379cf6 ${prog}%, #e8e8e8 ${prog}%, #e8e8e8)`,
     display: 'inline-block',
   };
 
@@ -32,7 +32,7 @@ const Book = (props) => {
           >
             <div className="title-section">
               <div>
-                <h4>{category}</h4>
+                <h4>{cat}</h4>
                 <h2>{title}</h2>
                 <h4>{author}</h4>
               </div>
@@ -46,7 +46,7 @@ const Book = (props) => {
               <span className="circle" style={progress}> </span>
               <div>
                 <h3>
-                  {percentComplete}
+                  {prog}
                   %
                 </h3>
                 <p>Completed</p>
@@ -66,19 +66,20 @@ const Book = (props) => {
 };
 
 Book.propTypes = {
-  id: PropTypes.string,
-  category: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  id: PropTypes.number,
+  cat: PropTypes.string,
+  title: PropTypes.string,
   author: PropTypes.string,
-  percentComplete: PropTypes.number,
+  prog: PropTypes.number,
   chapter: PropTypes.string,
 };
 
 Book.defaultProps = {
   id: 1,
-  category: '',
+  cat: '',
+  title: '',
   author: '',
-  percentComplete: 0,
+  prog: 0,
   chapter: '',
 };
 
