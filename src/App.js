@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,8 +9,11 @@ import Nav from './components/Nav';
 import RenderBooks from './components/RenderBooks';
 import Categories from './redux/categories/Categories';
 import './App.css';
+import { fetchBooksApi } from './components/ApiData';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchBooksApi()), []);
   return (
     <div className="App">
       <Router>

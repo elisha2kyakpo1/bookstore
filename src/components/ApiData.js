@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 import { addBook, fetchBooks, removeBook } from '../redux/books/Books';
 
 const APP_ID = '2bjHmEaEwufiiom45UAT';
@@ -6,7 +7,7 @@ const USER_DATA_API = `https://us-central1-bookstore-api-e63c8.cloudfunctions.ne
 const fetchBooksApi = () => {
   function arrayFormat(respObj) {
     const values = Object.values(respObj).map((item) => item[0]);
-    return Object.keys(respObj).map((item, i) => ({ id: Number(item), ...values[i] }));
+    return Object.keys(respObj).map((item, i) => ({ id: item, ...values[i] }));
   }
 
   return async function loadBooksThunk(dispatch) {
@@ -17,7 +18,7 @@ const fetchBooksApi = () => {
 };
 
 const addBookApi = (payload) => {
-  const bookDetails = { ...payload, item_id: Date.now() };
+  const bookDetails = { ...payload, item_id: uniqid() };
   return async function addBookThunk(dispatch) {
     fetch(USER_DATA_API, {
       method: 'POST',

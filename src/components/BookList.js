@@ -1,9 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBooksApi } from './ApiData';
 import Book from './Book';
 
 function BookList() {
   const books = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooksApi());
+  }, []);
   return (
     <div className="book-list">
       { books.map((book) => {
