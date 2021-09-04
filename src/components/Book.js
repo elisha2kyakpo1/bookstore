@@ -13,10 +13,7 @@ const Book = ({
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
-    const payload = (e.target.dataset.bookid);
-    if (payload) {
-      dispatch(removeBookApi(payload));
-    }
+    dispatch(removeBookApi(e.target.dataset.bookid));
   };
   const progress = {
     backgroundImage: `conic-gradient(from 0deg, #307bbe, #379cf6 ${prog}%, #e8e8e8 ${prog}%, #e8e8e8)`,

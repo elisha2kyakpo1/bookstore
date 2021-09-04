@@ -7,7 +7,7 @@ const USER_DATA_API = `https://us-central1-bookstore-api-e63c8.cloudfunctions.ne
 const fetchBooksApi = () => {
   function arrayFormat(respObj) {
     const values = Object.values(respObj).map((item) => item[0]);
-    return Object.keys(respObj).map((item, i) => ({ id: item, ...values[i] }));
+    return Object.keys(respObj).map((item, i) => ({ id: item.id, ...values[i] }));
   }
 
   return async function loadBooksThunk(dispatch) {
