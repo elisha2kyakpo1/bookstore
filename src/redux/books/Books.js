@@ -20,7 +20,7 @@ const fetchBooks = (payload) => ({
 function books(state = [], action) {
   switch (action.type) {
     case GET_BOOKS:
-      return action.payload.map((bookObject) => ({ ...bookObject, author: 'Suzanne Collins', progress: 64 }));
+      return action.payload.map((bookObject) => ({ ...bookObject, author: 'Suzanne Collins' }));
     case ADD_BOOK:
       return state.concat({
         id: action.payload.item_id,

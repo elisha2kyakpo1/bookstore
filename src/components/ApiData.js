@@ -2,7 +2,7 @@ import uniqid from 'uniqid';
 import { addBook, fetchBooks, removeBook } from '../redux/books/Books';
 
 const APP_ID = '0sCBow3akNF51bqmmqNy';
-const USER_DATA_API = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${APP_ID}/books`;
+const USER_DATA_API = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${APP_ID}/books/`;
 
 const fetchBooksApi = () => {
   function arrayFormat(respObj) {
@@ -11,9 +11,12 @@ const fetchBooksApi = () => {
   }
 
   return async function loadBooksThunk(dispatch) {
-    fetch(USER_DATA_API)
+    fetch(USER_DATA_API, {
+      method: 'GET',
+    })
       .then((response) => response.json())
-      .then((json) => dispatch(fetchBooks(arrayFormat(json))));
+      .then((json) => dispatch(fetchBooks(arrayFormat(json))))
+      .catch((error) => error.Json());
   };
 };
 
@@ -32,15 +35,17 @@ const addBookApi = (payload) => {
 
 const removeBookApi = (id) => {
   const success = 'The book was deleted successfully!';
+  const msg = 'Waiting';
   return async function removeBookThunk(dispatch) {
-    fetch(`${USER_DATA_API}${id.toString()}`, {
+    fetch(`${USER_DATA_API}${id}`, {
       method: 'DELETE',
       body: JSON.stringify({ item_id: id }),
       headers: {
         'content-type': 'application/json',
       },
     }).then((response) => response.text())
-      .then((text) => text === success && dispatch(removeBook(id)));
+      .then((text) => text === success && dispatch(removeBook(id)))
+      .catch((error) => error === msg);
   };
 };
 
