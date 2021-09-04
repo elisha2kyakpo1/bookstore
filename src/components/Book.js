@@ -65,19 +65,15 @@ const Book = ({
 };
 
 Book.propTypes = {
-  id: PropTypes.string,
-  cat: PropTypes.string,
-  title: PropTypes.string,
-  author: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  cat: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   prog: PropTypes.number,
+  author: PropTypes.string.isRequired,
 };
 
 Book.defaultProps = {
-  id: 'kt3988z7',
-  cat: 'Action',
-  title: 'Good afternoon, I will get back to you',
-  author: 'Elisha kyakopo',
-  prog: 66,
+  prog: 50,
 };
 
 export default Book;

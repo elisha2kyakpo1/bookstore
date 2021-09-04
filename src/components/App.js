@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
-import Nav from './components/Nav';
-import RenderBooks from './components/RenderBooks';
-import Categories from './redux/categories/Categories';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import Nav from './Nav';
 import './App.css';
-import { fetchBooksApi } from './components/ApiData';
+import { fetchBooksApi } from './ApiData';
+import Categories from '../redux/categories/Categories';
+import RenderBooks from './RenderBooks';
 
 function App() {
   const dispatch = useDispatch();

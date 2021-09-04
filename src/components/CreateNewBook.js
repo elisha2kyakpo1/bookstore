@@ -23,7 +23,7 @@ function CreateNewBook() {
   return (
     <div className="form">
       <div>
-        <h2>Add NEW BOOK</h2>
+        <h2 className="add-book">Add NEW BOOK</h2>
         <form onSubmit={handleSub}>
           <input className="input" type="text" name="title" placeholder="Book title" onChange={(title) => setTitle(title.target.value)} />
           <select className="selection" name="category" onChange={(category) => setCategory(category.target.value)}>

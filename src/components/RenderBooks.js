@@ -1,15 +1,13 @@
-import Book from './Book';
 import BookList from './BookList';
 import CreateNewBook from './CreateNewBook';
 
-function renderBooks() {
+function RenderBooks() {
   return (
     <div className="render">
-      <Book />
-      <CreateNewBook />
       <BookList />
+      <CreateNewBook />
     </div>
   );
 }
 
-export default renderBooks;
+export default RenderBooks;

@@ -1,6 +1,6 @@
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-const GET_BOOK = 'bookstore/books/REMOVE_BOOK';
+const GET_BOOKS = 'bookstore/books/REMOVE_BOOK';
 
 const addBook = (payload) => ({
   type: ADD_BOOK,
@@ -13,32 +13,30 @@ const removeBook = (id) => ({
 });
 
 const fetchBooks = (payload) => ({
-  type: GET_BOOK,
+  type: GET_BOOKS,
   payload,
 });
 
-const booksLoaded = (state = [], action) => {
-  const authors = ['Stephen Jodan', 'Elisha martin', 'Winnie more', 'Stephen King', 'Albert Jordan'];
-  const chapter = ['Introduction', 'Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5'];
+function books(state = [], action) {
   switch (action.type) {
+    case GET_BOOKS:
+      return action.payload.map((bookObject) => ({ ...bookObject, author: 'Suzanne Collins', progress: 64 }));
     case ADD_BOOK:
-      return [...state, {
-        ...action.payload,
-        author: authors[Math.floor(Math.random() * authors.length)],
-        percentComplete: Math.floor(Math.random() * 100),
-        chapter: chapter[Math.floor(Math.random() * chapter.length)],
-      }];
+      return state.concat({
+        id: action.payload.item_id,
+        title: action.payload.title,
+        author: 'Suzanne Collins',
+        category: action.payload.category,
+      });
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
-    case GET_BOOK:
-      return action.payload.map((bookObject) => ({ ...bookObject }));
+      return state.filter((book) => book.id !== action.payload);
     default:
       return state;
   }
-};
+}
 
 export {
-  booksLoaded,
+  books,
   removeBook,
   addBook,
   fetchBooks,
