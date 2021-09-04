@@ -69,7 +69,7 @@ const Book = ({
 };
 
 Book.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   cat: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   prog: PropTypes.number,
