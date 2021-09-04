@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import './App.css';
 import Header from './Header';
-import Books from './Books';
 import Categories from '../redux/categories/Categories';
 import { loadBooksAPI } from '../redux/books/Books';
+import Books from './Books';
 
 function App() {
   const dispatch = useDispatch();
