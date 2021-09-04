@@ -11,12 +11,9 @@ const fetchBooksApi = () => {
   }
 
   return async function loadBooksThunk(dispatch) {
-    fetch(USER_DATA_API, {
-      method: 'GET',
-    })
+    fetch(USER_DATA_API)
       .then((response) => response.json())
-      .then((json) => dispatch(fetchBooks(arrayFormat(json))))
-      .catch((error) => error.Json());
+      .then((json) => dispatch(fetchBooks(arrayFormat(json))));
   };
 };
 
@@ -35,7 +32,6 @@ const addBookApi = (payload) => {
 
 const removeBookApi = (id) => {
   const success = 'The book was deleted successfully!';
-  const msg = 'Waiting';
   return async function removeBookThunk(dispatch) {
     fetch(`${USER_DATA_API}${id}`, {
       method: 'DELETE',
@@ -43,9 +39,9 @@ const removeBookApi = (id) => {
       headers: {
         'content-type': 'application/json',
       },
-    }).then((response) => response.text())
+    }).then((response) => (response.text()))
       .then((text) => text === success && dispatch(removeBook(id)))
-      .catch((error) => error === msg);
+      .catch((error) => error);
   };
 };
 
