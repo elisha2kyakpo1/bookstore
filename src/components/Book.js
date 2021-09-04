@@ -18,6 +18,7 @@ const Book = ({
       dispatch(removeBookApi(payload));
     }
   };
+
   const progress = {
     backgroundImage: `conic-gradient(from 0deg, #307bbe, #379cf6 ${prog}%, #e8e8e8 ${prog}%, #e8e8e8)`,
     display: 'inline-block',
@@ -69,7 +70,7 @@ const Book = ({
 };
 
 Book.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   cat: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   prog: PropTypes.number,
