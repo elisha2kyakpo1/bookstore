@@ -75,7 +75,7 @@ Book.propTypes = {
 };
 
 Book.defaultProps = {
-  prog: 50,
+  prog: 60,
 };
 
 export default Book;

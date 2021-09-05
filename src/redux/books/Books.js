@@ -20,13 +20,14 @@ const fetchBooks = (payload) => ({
 function books(state = [], action) {
   switch (action.type) {
     case GET_BOOKS:
-      return action.payload.map((bookObject) => ({ ...bookObject, author: 'Suzanne Collins' }));
+      return action.payload.map((bookObject) => ({ ...bookObject, author: 'Suzanne Collins', percentComplete: 65 }));
     case ADD_BOOK:
       return state.concat({
         id: action.payload.item_id,
         title: action.payload.title,
         author: 'Suzanne Collins',
         category: action.payload.category,
+        percentComplete: 65,
       });
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload);
